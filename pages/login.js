@@ -10,7 +10,7 @@ function Login(){
     const [errors,setErrors] = useState([]);
 
     const { login,isLoading,user,error } = useAuth({middleware:'guest'});
-
+    console.log(error);
     const handleInputChange = (event) => {
         setFields({
             ...fields,
@@ -46,7 +46,8 @@ function Login(){
     return(
         <div className="row justify-content-center">
             <form onSubmit={handleSubmit} className="col-sm-5 border border-primary p-5">
-                {error !== '' && <p className="text-danger">{fielderror}</p> }
+                {fielderror !== '' && <p className="text-danger">{fielderror}</p> }
+                {error && <p className="text-danger">{error.message}</p> }
                 {errors.length > 0 && (
                 <div>
                     <div className="font-medium text-red-600">

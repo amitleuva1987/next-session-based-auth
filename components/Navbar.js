@@ -15,6 +15,9 @@ function Navbar(){
                 <Link href="/" class="nav-link active" aria-current="page">Home</Link>
             </li>
             <li className="nav-item">
+                <Link href="/users" class="nav-link active" aria-current="page">Users</Link>
+            </li>
+            <li className="nav-item">
                 <Link href="/login" class="nav-link active" aria-current="page">Login</Link>
             </li>
             <li className="nav-item">
