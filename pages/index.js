@@ -6,7 +6,7 @@ import useAuth from '../library/useAuth'
 export default function Home() {
   const { user, error, isLoading } = useAuth({middleware:'auth'});
   
-  if(isLoading){
+  if(isLoading || !user){
     return(
       <div className="d-flex justify-content-center">
         <div className={'spinner-border text-info ' + styles.spinner} role="status">
@@ -14,7 +14,8 @@ export default function Home() {
         </div>
       </div>
     )
-  } else {
+  } 
+  else{
   return (
     <div className={styles.container}>
       <Head>

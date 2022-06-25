@@ -40,6 +40,9 @@ function Users(){
             </tbody>
         </table>
         <button onClick={() => setPageIndex(pageIndex - 1)} className="btn btn-primary me-2" disabled={pageIndex === 1 ? 'disabled':''}>Previous</button>
+        {Array.from(Array(3), (e, i) => {
+            return <button className="btn btn-primary ms-1" key={i}>{i+1}</button>
+        })}
         <button onClick={() => setPageIndex(pageIndex + 1)} className="btn btn-primary ms-2" disabled={categories.last_page === pageIndex ? 'disabled':''}>Next</button>
         </>
     )
