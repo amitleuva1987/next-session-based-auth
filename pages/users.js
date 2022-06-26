@@ -39,11 +39,17 @@ function Users(){
                 {category_list}
             </tbody>
         </table>
+        <button onClick={() => setPageIndex(1)} className="btn btn-primary me-2" disabled={pageIndex === 1 ? 'disabled':''}>First</button>
         <button onClick={() => setPageIndex(pageIndex - 1)} className="btn btn-primary me-2" disabled={pageIndex === 1 ? 'disabled':''}>Previous</button>
-        {Array.from(Array(3), (e, i) => {
-            return <button className="btn btn-primary ms-1" key={i}>{i+1}</button>
-        })}
+        <button onClick={() => setPageIndex(categories.current_page)} className="btn btn-primary" disabled="disabled">{categories.current_page}</button>
+        {categories.current_page < categories.last_page == true &&
+            <button onClick={() => setPageIndex(categories.current_page+1)} className="btn btn-primary ms-2">{categories.current_page+1}</button>
+        }
+        {categories.current_page+1 < categories.last_page == true &&
+            <button onClick={() => setPageIndex(categories.current_page+2)} className="btn btn-primary ms-2">{categories.current_page+2}</button>
+        }
         <button onClick={() => setPageIndex(pageIndex + 1)} className="btn btn-primary ms-2" disabled={categories.last_page === pageIndex ? 'disabled':''}>Next</button>
+        <button onClick={() => setPageIndex(categories.last_page)} className="btn btn-primary ms-2" disabled={pageIndex === categories.last_page ? 'disabled':''}>Last</button>
         </>
     )
     }
